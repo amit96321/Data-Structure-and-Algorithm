@@ -24,9 +24,9 @@ void bfsUtil(vector<int> g[],int s,int visited[]){
 
 void bfs(vector<int> g[],int size){
     int visited[size]={0};
-    for(int i=2;i<size;i++)
+    for(int i=0;i<size;i++)
         if(visited[i]==0)
-            bfsUtil(g,2,visited);
+            bfsUtil(g,i,visited);
     return;
 }
 
