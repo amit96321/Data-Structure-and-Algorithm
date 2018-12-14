@@ -1,0 +1,3 @@
+1. Finding mother vertex in a graph(vertex which has a path to every other vertex): 
+  a)Naive approach: using bfs or dfs this takes O(V(V+E)) time.
+2. Kosaraju’s Strongly Connected Component Algorithm O(V+E): https://www.geeksforgeeks.org/strongly-connected-components/ 
