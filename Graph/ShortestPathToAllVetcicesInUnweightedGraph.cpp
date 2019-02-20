@@ -4,9 +4,8 @@
 #define ll long long
 using namespace std;
 
-void add(vector<int> g[],vector<int> &indegree,int u,int v){
+void add(vector<int> g[],int u,int v){
     g[u].push_back(v);
-    indegree[v]++;
     return;
 }
 
@@ -34,20 +33,22 @@ void shortest_path(vector<int> g[],int n,int src){
 }
 
 int main(){
+    int vertices;
+    int src;
+    vertices=7;
+    src=2;
     vector<int> g[7];
-    vector<int> indegree(7);
-    for(int i=0;i<7;i++) indegree[i]=0;
-    add(g,indegree,0,1);
-    add(g,indegree,0,3);
-    add(g,indegree,1,3);
-    add(g,indegree,1,4);
-    add(g,indegree,2,0);
-    add(g,indegree,2,5);
-    add(g,indegree,3,5);
-    add(g,indegree,3,6);
-    add(g,indegree,4,6);
-    add(g,indegree,6,5);
+    add(g,0,1);
+    add(g,0,3);
+    add(g,1,3);
+    add(g,1,4);
+    add(g,2,0);
+    add(g,2,5);
+    add(g,3,5);
+    add(g,3,6);
+    add(g,4,6);
+    add(g,6,5);
     
-    shortest_path(g,7,2);
+    shortest_path(g,vertices,src); 
     return 0;
 }
