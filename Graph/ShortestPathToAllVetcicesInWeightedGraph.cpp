@@ -20,14 +20,20 @@ void add(vector<pair<int,int>> g[],int u,int v,int weight){
 void shortest_path(vector<pair<int,int>> g[],int n,int src){
     int distance[n],path[n],i;
     pair<int,int> temp;
-    for(i=0;i<n;i++) distance[i]=-1;
+    for(i=0;i<n;i++) distance[i]=-1; //-1 is used to track weather the node is visited or not
     distance[src]=0;
     path[src]=src;  //path is used to store the vertex just a level before any vertex
     priority_queue<pair<int,int>, vector<pair<int,int> >, compare> pq;
     pq.push(make_pair(src,0));
     while(!pq.empty()){
         temp=pq.top();
-        pq.pop();
+        pq.pop();    
+        //it is guranteed that node which is popped has minimal distance from source but in case of negative
+        //weights popped node can have less distance than current in future hence dijkstra does not work 
+        //work in case of negative weight edges
+        //although if there is negative weight cycle shortest path has no any meaning
+        //see bellman ford algorithm for negative weight edges
+        
         for(i=0;i<g[temp.first].size();i++){
             //if node is visited 1st then just make its distance equal to sum of distance upto previous node
             //and weight of path from previous to current node
